@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1416759024 source:d:\我的文档\我自己的\南邮acm\1182\1182.cpp
+	"stdafx.h"
+	<bitset>
+	<iostream>
+
+1416755541 d:\我的文档\我自己的\南邮acm\1182\stdafx.h
+	<stdio.h>
+	<tchar.h>
+
+1416755542 source:d:\我的文档\我自己的\南邮acm\1182\stdafx.cpp
+	"stdafx.h"
+
