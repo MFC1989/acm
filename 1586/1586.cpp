@@ -5,12 +5,12 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-
+#include <io.h>
 int main()
 {
+	
 	int times;
 	scanf("%d", &times);
-
 	if (times < 1 || times>100000)
 	{
 		exit(0);
@@ -40,6 +40,7 @@ int main()
 			else
 			{
 				printf("Case %d: No answer\n",cases);
+				 
 			}
 		}
 		else

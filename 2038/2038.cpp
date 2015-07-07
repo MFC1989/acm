@@ -10,6 +10,8 @@
 #include <vector>
 using namespace std;
 
+#pragma warning (disable : 4996)
+
 int main()
 {
 	char scoreStr[10000] = {0x00};
