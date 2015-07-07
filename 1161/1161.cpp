@@ -34,28 +34,28 @@ int missleIntercept(int * missle, int num, int * dp)
 int main()
 {
 
-	int nMissles[1000] = {0x00};
+	int nMissles[1000] = { 0x00 };
 	int dp[1000];
 
-		int numOfMissles;
-		cin >> numOfMissles;
-		if (numOfMissles<1 || numOfMissles>1000)
-		{
-			exit(0);
-		}
-		for (register int i = 0; i < numOfMissles; i++)
-		{
-			int element;
-			scanf("%d", &element);
-			nMissles[i] = element;
-		}
+	int numOfMissles;
+	cin >> numOfMissles;
+	if (numOfMissles<1 || numOfMissles>1000)
+	{
+		exit(0);
+	}
+	for (register int i = 0; i < numOfMissles; i++)
+	{
+		int element;
+		scanf("%d", &element);
+		nMissles[i] = element;
+	}
 
-		for (int i = 0; i < 1000; i++)
-		{
-			dp[i] = 1;
-		}
-		int res = missleIntercept(nMissles, numOfMissles, dp);
-	
-		printf("%d\n", res);
+	for (int i = 0; i < 1000; i++)
+	{
+		dp[i] = 1;
+	}
+	int res = missleIntercept(nMissles, numOfMissles, dp);
+
+	printf("%d\n", res);
 	return 0;
 }
