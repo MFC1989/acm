@@ -60,12 +60,12 @@ int main()
 {
 
 	int n=0;
-	while (cin>>n&&n!=0)
+	while (cin>>n&&n>0)
 	{
-		/*	if (n<1000||n>9999)
-			{
+		if (n<1000 || n>9999)
+		{
 			exit(0);
-			}*/
+		}
 		char buff16[5] = { 0x00 };
 		itoa(n,buff16,16);
 		int sum16 = get16Sum(buff16, strlen(buff16));
@@ -82,12 +82,12 @@ int main()
 		if (sum10==sum12&&sum10==sum16)
 		{
 			cout << n << " is a Ray Number." << endl;
+									
 		}
 		else
 		{
 			cout << n << " is not a Ray Number." << endl;
 		}
-
 
 	}
 	return 0;

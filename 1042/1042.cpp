@@ -39,9 +39,9 @@ int main()
 		{
 			exit(0);
 		}
-		cout<<*(min_element(vecInt.begin()+mBegin-1,vecInt.begin()+mEnd-1))<<endl;
-		cout<<*(vecInt.begin()+mBegin-1)<<endl;
-		cout<<*(vecInt.begin()+mEnd-1)<<endl;
+		int range = mEnd - mBegin;
+		vector<int>::iterator it = (min_element(vecInt.begin() + mBegin - 1, vecInt.begin() + mEnd - 1));
+	 
 	}
  
 	return 0;
