@@ -6,6 +6,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <algorithm>
 using namespace std;
 
 const int BUFFLEN = 20;
@@ -15,6 +16,14 @@ vector<string> final;
 
 int t = 0;
 
+char mToUpper(char ch)
+{
+	if (isalpha(ch)&&islower(ch))
+	{
+		exit(0);
+	}
+	
+}
 
 void printNumBy3Type(int num,int count)
 {
@@ -34,34 +43,29 @@ void printNumBy3Type(int num,int count)
 	sprintf(resStr,"%s%c\n", outPutBuff, 'B');
 	//final.push_back(resStr);
 	cout << resStr;
-
-	
 	memset(resStr, 0, BUFFLEN);
 	memset(outPutBuff, 0, BUFFLEN);
 	sprintf(resStr,"%d%c\n", num, 'D');
 	cout << resStr;
 	//final.push_back(resStr);
-	
-	
 	memset(resStr, 0, BUFFLEN);
 	memset(outPutBuff, 0, BUFFLEN);
 	itoa(num, outPutBuff, 16);
-	if (t==count)
-	{
-		sprintf(resStr, "%s%c", outPutBuff, 'H');
-	}
-	else
-	{
-		sprintf(resStr, "%s%c\n\n", outPutBuff, 'H');
-	}
+	//if (t==count)
+	//{
+	//	sprintf(resStr, "%s%c\n", outPutBuff, 'H');
+	//}
+	//else
+	//{
+		sprintf(resStr, "%s%c\n", outPutBuff, 'H');
+	//}
 	//final.push_back(resStr);
 	cout << resStr;
-
+	cout << endl;
 }
 
 int main()
 {
-	
 	int times;
 	cin>>times;
 	t = times;
@@ -69,13 +73,14 @@ int main()
 	while(times--)
 	{
 		string strNum;
+		transform(strNum.begin(), strNum.end(), strNum.begin(), mToUpper);
 		cin>>strNum;
 		count++;
 		//cout << "Case " << ++count << ":" << endl;
 		int len=strNum.length();
 		char NumType=strNum[len-1];
 		 
-		if( isalnum(NumType))
+		if( isdigit(NumType))
 		{
 			printNumBy3Type(atoi(strNum.c_str()),count);
 		}
@@ -96,12 +101,6 @@ int main()
 			}
 		}
 	}
-	
-	 
-	//for(int i=0;i<final.size();i++)
-	//{
-	//	cout<<final[i];
-	//}
-	 
+
 	return 0;
 }
