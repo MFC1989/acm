@@ -6,6 +6,7 @@
 #include <vector>
 #include <iostream>
 #include <algorithm>
+#include <functional>
 using namespace std;
 
 
@@ -27,12 +28,14 @@ int main()
 		exit(0);
 	}
 
-	vector<int>VecOld;
-	vector<int>VecNew;
+	vector<int>VecNum;
+	vector<int>VecBuff;
 
 	while (times--)
 	{
 		int countScore;
+	
+
 		cin >> countScore;
 		if (countScore<1||countScore>1000)
 		{
@@ -42,20 +45,20 @@ int main()
 		{
 			int tmp;
 			cin >> tmp;
-			VecOld.push_back(tmp);
+			VecNum.push_back(tmp);
 		}
-		VecNew = VecOld;
-		sort(VecOld.begin(), VecOld.end());
-		if (VecNew==VecOld)
+		VecBuff = VecNum;
+		sort(VecNum.begin(), VecNum.end(), std::less<int>());
+		if (VecBuff==VecNum)
 		{
 			cout << "N/A" << endl;
 		}
 		else
 		{
-			mPrint(VecNew);
+			mPrint(VecNum);
 		}
-		VecOld.clear();
-		VecNew.clear();
+		VecNum.clear();
+		VecBuff.clear();
 	}
 
 	return 0;
