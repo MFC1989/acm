@@ -1,7 +1,9 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "1029", "1029\1029.vcproj", "{DAFD8738-67FD-4273-B80B-909725C0FC45}"
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "1029", "1029\1029.vcxproj", "{DAFD8738-67FD-4273-B80B-909725C0FC45}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "1007", "1007\1007.vcproj", "{80C511F9-AE6D-4F11-AC0A-88995E9BB7FD}"
 EndProject
