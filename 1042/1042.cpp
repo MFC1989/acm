@@ -12,38 +12,46 @@ int main()
 {
 	vector<int> vecInt;
 	int lenth;
-	cin>>lenth;
+	cin >> lenth;
 
-	 if (lenth<1||lenth>10000)
-	 {
-		 exit(0);
-	 }
+	if (lenth<1 || lenth>10000)
+	{
+		exit(0);
+	}
 	while (lenth--)
 	{
 		int tmp;
-		cin>>tmp;
+		cin >> tmp;
 		vecInt.push_back(tmp);
 	}
 
 	int queryTimes;
-	cin>>queryTimes;
-	if (queryTimes>500000||queryTimes<1)
+	cin >> queryTimes;
+	if (queryTimes > 500000 || queryTimes < 1)
 	{
 		exit(0);
 	}
 	while (queryTimes--)
 	{
-		int mBegin,mEnd;
-		cin>>mBegin>>mEnd;
-		if (mBegin<1||mEnd>vecInt.size())
+		int mBegin, mEnd;
+		cin >> mBegin >> mEnd;
+		if (mBegin<1 || mEnd>vecInt.size())
 		{
 			exit(0);
 		}
-		int range = mEnd - mBegin;
-		vector<int>::iterator it = (min_element(vecInt.begin() + mBegin - 1, vecInt.begin() + mEnd - 1));
-	 
+		if (queryTimes==0)
+		{
+			cout << *(min_element(vecInt.begin() + mBegin - 1, vecInt.begin() + mEnd - 1));
+		}
+		else
+		{
+			cout << *(min_element(vecInt.begin() + mBegin - 1, vecInt.begin() + mEnd - 1)) << endl;
+		}
+		//cout << *(vecInt.begin() + mBegin - 1) << endl;
+		//cout << *(vecInt.begin() + mEnd - 1) << endl;
 	}
- 
+
 	return 0;
 }
+
 

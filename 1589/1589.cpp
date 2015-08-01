@@ -49,7 +49,6 @@ void turnLight(int n,int k)
 			}
 		}
 	}
-
 	delete [] lightCols;
 
 }

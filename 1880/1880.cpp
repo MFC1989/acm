@@ -4,45 +4,27 @@
 #include "stdafx.h"
 
 #include <stdio.h>
-#include <stdlib.h>
+
+
+int getIndex(int len)
+{
+	int cur, first;
+	scanf("%d", &first);
+
+	int i;
+	for ( i = 0; i < len-1;i++)
+	{
+		scanf("%d", &cur);
+		first ^= cur;
+	}
+	return first;
+}
+
 int main()
 {
-	long long old=0;
-	long long i=1;
-	long long totalNum;
-	scanf("%lld",&totalNum);
-	if (totalNum>10000000||totalNum%2==0||totalNum<1)
-	{
-		exit(0);
-	}
-	bool find=false;
-	while( totalNum--)
-	{
-		long long tmp=0;
-		scanf("%lld",&tmp);
-		
-		if (i%2!=0)
-		{
-			old=tmp;
-		}
-		else
-		{
-			if (old!=tmp)
-			{
-				find=true;
-				continue;	
-			}
-		}
-		i++;
-	}
-	if (find)
-	{
-		printf("%d\n",old);
-	}
-	else
-	{
-		printf("%d\n",totalNum);
-	}
+	int n;
+	scanf("%d", &n);
+	printf("%d", getIndex(n));
 	return 0;
 }
 

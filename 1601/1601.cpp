@@ -2,68 +2,36 @@
 //
 
 #include "stdafx.h"
+
+#include <cstdio>
 #include <iostream>
-#include <algorithm>
-#include <utility>
-#include <functional>
-#include <vector>
-#include <string>
-#include <set>
+#include <map>
+#include <hash_map>
 using namespace std;
 
-class mClass
-{
-public:
-	long long num;
-	long long count;
-	mClass(long long tnum)
-	{
-		num=tnum;
-		count=0;	 
-	}
-	mClass()
-	{
-		num = 0;
-		count = 0;
-	}
-	bool operator==(const mClass &t1)const
-	{
-		return (this->num == t1.num&&this->count==t1.count);
-	}
-	bool   operator <  (const   mClass&   rhs   )  const   //ÉýÐòÅÅÐòÊ±±ØÐëÐ´µÄº¯Êý
-	{  
-		return   num   <   rhs.num;
-	}
 
-};
+typedef long long  MLONGINT;
+typedef map<MLONGINT, MLONGINT>::iterator mapit;
 
-vector<mClass> vec;
-vector<long long>VecInt;
-vector<string> res; 
-
-void CalcCount(mClass & tClass)
-{
-	tClass.count=std::count(VecInt.begin(),VecInt.end(),tClass.num);
-}
-void mPrint( mClass classt)
-{
-	 cout<<classt.num<<" "<<classt.count<<endl;
-}
-bool compare1( const mClass & xClass,const mClass & yClass)
-{
-	return xClass<yClass;
-}
+hash_map<int,int>s;
 int main()
 {
-	long long n;
-	long long flag=0;
+		map<MLONGINT,MLONGINT> cols;
+		MLONGINT n;
+		scanf("%lld", &n);
 	
-	mClass tmp;
-	set<mClass> mSet;
-	while (cin >> n)
-	{
-		 
-	}
+		MLONGINT tmp;
+		while (n--)
+		{
+			scanf("%lld",&tmp);
+			cols[tmp]++;
+		}
+		
+		for (register mapit it = cols.begin(); it != cols.end(); it++)
+		{
+			printf("%lld %lld\n", (*it).first, (*it).second);
+		}
+
 	return 0;
 }
 
