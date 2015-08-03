@@ -1,7 +1,7 @@
 // 1532.cpp : Defines the entry point for the console application.
 //
 
-#include "stdafx.h"
+//#include "stdafx.h"
 
 #include <iostream>
 #include <string>
@@ -9,7 +9,7 @@
 #include <algorithm>
 using namespace std;
 
-class mMap 
+class mMap
 {
 public:
 	char old;
@@ -26,9 +26,9 @@ string str,letter;
 
 bool checkStr(char ch)
 {
-	if (!isspace(ch))
+	if (! isspace(ch))
 	{
-		if (!isalpha(ch)||!isupper(ch))
+		if (!isupper(ch))
 		{
 			exit(0);
 		}
@@ -37,7 +37,7 @@ bool checkStr(char ch)
 
 bool checkLetter(char ch)
 {
-	if (!isupper(ch))
+	if (! isupper(ch))
 	{
 		exit(0);
 	}
@@ -58,10 +58,12 @@ int main()
 			vec.push_back(mMap('A' + i, ' '));
 		}
 		cin.sync();
+		//getchar();
 		getline(cin, str);
 		for_each(str.begin(), str.end(),checkStr);
-		cin.sync();
 
+		cin.sync();
+		//getchar();
 		getline(cin, letter);
 		for_each(letter.begin(), letter.end(), checkLetter);
 		if (letter.size()!=26)
@@ -86,7 +88,7 @@ int main()
 					break;
 				}
 			}
-		 
+
 		}
 
 		currentTimes++;
@@ -94,7 +96,7 @@ int main()
 		{
 			cout << currentTimes << " " << str << endl;
 
-		} 
+		}
 		else
 		{
 			cout << currentTimes << " " << str ;
@@ -102,7 +104,7 @@ int main()
 		}
 		vec.clear();
 	}
-	
+
 
 	return 0;
 }

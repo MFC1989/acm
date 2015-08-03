@@ -1,108 +1,64 @@
 // 1589.cpp : Defines the entry point for the console application.
-//
+/*
+现在有n盏灯，编号1～n。第1个人把所有灯打开，第2个人按下所有编号为2的倍数的灯的开关（这些灯将被关掉），第3个人按下所有编号为3的倍数的灯的开关（其中关掉的灯将被打开，开着的灯将被关闭），依次类推。一共有k个人，问最后哪些灯是开着的？
+*/
+
 
 #include "stdafx.h"
-#include <vector>
-#include <algorithm>
-#include <functional>
-#include <iostream>
-#include <bitset>
-using namespace std;
 
+#include <cstdio>
+#include <string.h>
 
-
-bool myFunction(int n,int item)
+void turnLight(int n,int k)
 {
-	if (item%n==0)
+	bool * lightCols = new bool[n + 1];
+	memset(lightCols, 1, n + 1);
+
+	int lastindex = n;	
+
+	for (int i = 2; i <= k;i++)
 	{
-		return true;
+		for (int j = i; j <= n;j+=i)
+		{
+			lightCols[j] = !(lightCols[j]);
+		}
 	}
-	return false;
+
+
+	for (int i = n; i >=0;i--)
+	{
+		if (lightCols[i])
+		{
+			break;
+		}
+		lastindex--;
+	}
+
+
+	for (int i = 1; i <=n;i++)
+	{
+		if (lightCols[i]==1)
+		{
+			if (i!=lastindex)
+			{
+				printf("%d ",i);
+			}
+			else
+			{
+				printf("%d\n", i);
+			}
+		}
+	}
+	delete [] lightCols;
+
 }
 
-void printItem(int n)
-{
-	cout<<n<<endl;
-}
+
 int main()
 {
-	int n,k;
-	cin>>n;
-	if (n<1||n>1000)
-	{
-		return 0;
-	}
-	cin>>k;
-	if (k<1||k>1000||k>n)
-	{
-		return 0;
-	}
-	bool array[1001]={false};
-	if (k>=1)
-	{
-		for (int i=0;i<n;i++)
-		{
-			array[i]=true;
-		/*	if (k==1)
-			{
-				cout<<i+1<<" ";
-			}*/
-		}
-	}
-	if (k>=2)
-	{
-		for (int i=0;i<n;i++)
-		{
-			if (i%2==0)
-			{
-				array[i]=false;
-			}
-		}
-	}
-
-	vector<int> vec;
-
-	for (int i=0;i<n;i++)
-	{
-		vec.push_back(array[i]);
-	}
-	
-	 int flag=2;
-	//for (vector<int>::iterator it=vec.begin();it!=vec.end();it++)
-	//{
-	//	
-	//}
-	//
-	while (flag<=k)
-	{
-		for (int i=2;i<=vec.size();i++)
-		{
-			if (i%flag==0)
-			{
-				if (vec[i]==0)
-				{
-					vec[i]=1;
-					continue;
-				}
-				else 
-				{
-					vec[i]==0;
-					continue;
-				}
-			}
-		}
-		 
-		flag++;
-	}
-		
- 
-	/*	for (int i=2;i<=k;i++)
-		{
-			vec.erase (remove_if(vec.begin(),vec.end(),bind1st(ptr_fun(  myFunction ),i  )) ,vec.end());
-		}*/
-		
-
-
+	int n,  k;
+	scanf("%d%d", &n, &k);
+	turnLight(n, k);
 	return 0;
 }
 
