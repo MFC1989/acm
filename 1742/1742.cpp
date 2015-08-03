@@ -64,6 +64,8 @@ void printNumBy3Type(int num,int count)
 	cout << endl;
 }
 
+
+
 int main()
 {
 	int times;
