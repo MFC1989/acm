@@ -2,10 +2,10 @@
 //
 
 #include "stdafx.h"
-#include <iostream>
-#include <sstream>
-#include <vector>
-using namespace std;
+#include <cstdio>
+#include <cstdlib>
+//#include <iostream>
+//using namespace std;
 
 inline  int calc(char op,int tn1,int tn2)
 {
@@ -39,50 +39,38 @@ inline  int calc(char op,int tn1,int tn2)
 	}
 }
 
-//vector<int> vec;
 int main()
 {
-	int numOfTests=4;
+	int numOfTests;
 	//cin>>numOfTests;
 	scanf("%d", &numOfTests);
-	if (numOfTests>100000||numOfTests<1)
+	if (numOfTests > 100000 || numOfTests < 1)
 	{
 		return 0;
 	}
-	fflush(stdin);
-	//string str,tmp;
-	//stringstream ss;        
-	//char mOperator;
-	//int n1,n2;
-	////clear the buffer of cin
-	//cin.sync();
-	int count=0;
-	//char buffer[5]={0x00};
 
+	int count=0;
 
 	while (numOfTests)
 	{
-		//getline(cin,str);
-		//
-		//ss<<str;
-		//ss>>mOperator>>n1>>n2;
-		//cout<<"Case "<<count<<": "<<n1<<mOperator<<n2<<"="<<calc(mOperator,n1,n2)<<endl;
-		 //vec.push_back(calc(mOperator,n1,n2));
-		//clear the buffer of stringstream
-		//ss.str("");
-
 		count++;
 		char op;
 		int n1, n2;
-		//cin >> op >> n1 >> n2;
-		/*scanf("%c", &op);
-		scanf("%d",  &n1);
-		scanf("%d",  &n2);*/
-		scanf("%c%d%d",&op,&n1,&n2);
-		fflush(stdin);
+		
 
-		//cout << "Case " << count << ": " << n1 << op << n2 << "=" << calc(op, n1, n2) << endl;
-		printf("Case %d: %d%c%d=%d\n", count, n1, op, n2, calc(op, n1, n2));
+		//fflush(stdin);    //fflush在windows被扩展了,LINUX不一定.(OJ上一般使用的是GCC)--
+							//根据C标准，fflush(stdout)有定义，而fflush(stdin)则是没有明确定义的
+		getchar();			//此处应该使用getchar()	
+		scanf("%c%d%d",&op,&n1,&n2);
+
+		if (numOfTests==1)
+		{
+			printf("Case %d: %d%c%d=%d\n", count, n1, op, n2, calc(op, n1, n2));
+		}
+		else
+		{
+			printf("Case %d: %d%c%d=%d\n", count, n1, op, n2, calc(op, n1, n2));
+		}
 		numOfTests--;
 	}
 	//cout<<vec[0]<<endl;
